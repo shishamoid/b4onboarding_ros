@@ -1,0 +1,5 @@
+
+
+1655527645.616135431  Node Startup
+1655527655.944167997 INFO /image_view [/tmp/binarydeb/ros-melodic-image-view-1.15.0/src/nodelets/image_nodelet.cpp:163(ImageNodelet::onInit)] [topics: /rosout, /image_view/parameter_descriptions, /image_view/parameter_updates] Using transport "raw"
+1655527663.473803267 WARN /uvc_camera [/tmp/binarydeb/ros-melodic-camera-info-manager-1.11.13/src/camera_info_manager.cpp:293(CameraInfoManager::loadCalibrationFile)] [topics: /rosout] Camera calibration file /root/.ros/camera_info/camera.yaml not found.

@@ -1,0 +1,104 @@
+[rosmaster.main][INFO] 2022-06-18 04:26:02,565: initialization complete, waiting for shutdown
+[rosmaster.main][INFO] 2022-06-18 04:26:02,565: Starting ROS Master Node
+[xmlrpc][INFO] 2022-06-18 04:26:02,566: XML-RPC server binding to 0.0.0.0:11311
+[xmlrpc][INFO] 2022-06-18 04:26:02,566: Started XML-RPC server [http://itodaisuke:11311/]
+[rosmaster.master][INFO] 2022-06-18 04:26:02,566: Master initialized: port[11311], uri[http://itodaisuke:11311/]
+[xmlrpc][INFO] 2022-06-18 04:26:02,566: xml rpc node: starting XML-RPC server
+[rosmaster.master][INFO] 2022-06-18 04:26:02,638: +PARAM [/run_id] by /roslaunch
+[rosmaster.master][INFO] 2022-06-18 04:26:02,639: +PARAM [/roslaunch/uris/host_itodaisuke__45225] by /roslaunch
+[rosmaster.master][INFO] 2022-06-18 04:26:02,754: +PARAM [/rosversion] by /roslaunch
+[rosmaster.master][INFO] 2022-06-18 04:26:02,754: +PARAM [/rosdistro] by /roslaunch
+[rosmaster.master][INFO] 2022-06-18 04:26:02,759: +SERVICE [/rosout/get_loggers] /rosout http://itodaisuke:44497/
+[rosmaster.master][INFO] 2022-06-18 04:26:02,760: +SERVICE [/rosout/set_logger_level] /rosout http://itodaisuke:44497/
+[rosmaster.master][INFO] 2022-06-18 04:26:02,761: +PUB [/rosout_agg] /rosout http://itodaisuke:44497/
+[rosmaster.master][INFO] 2022-06-18 04:26:02,762: +SUB [/rosout] /rosout http://itodaisuke:44497/
+[rosmaster.master][INFO] 2022-06-18 04:26:15,138: +PUB [/rosout] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:26:15,139: +SERVICE [/image_view/get_loggers] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:26:15,139: +SERVICE [/image_view/set_logger_level] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:26:15,140: +CACHEDPARAM [/rosout_disable_topics_generation] by /image_view
+[rosmaster.master][INFO] 2022-06-18 04:26:15,141: +SERVICE [/image_view/load_nodelet] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:26:15,142: +SERVICE [/image_view/unload_nodelet] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:26:15,142: +SERVICE [/image_view/list] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:26:15,182: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:41665/']
+[rosmaster.master][INFO] 2022-06-18 04:26:15,196: +SERVICE [/image_view/set_parameters] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:26:15,196: +PUB [/image_view/parameter_descriptions] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:26:15,197: +PUB [/image_view/parameter_updates] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:26:15,198: +PARAM [/image_view/do_dynamic_scaling] by /image_view
+[rosmaster.master][INFO] 2022-06-18 04:26:15,199: +PARAM [/image_view/colormap] by /image_view
+[rosmaster.master][INFO] 2022-06-18 04:26:15,199: +PARAM [/image_view/min_image_value] by /image_view
+[rosmaster.master][INFO] 2022-06-18 04:26:15,199: +PARAM [/image_view/max_image_value] by /image_view
+[rosmaster.master][INFO] 2022-06-18 04:26:15,203: +SUB [/image_raw] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:26:15,203: +PUB [/image_view/output] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:26:15,204: +PARAM [/image_view/do_dynamic_scaling] by /image_view
+[rosmaster.master][INFO] 2022-06-18 04:26:15,204: +PARAM [/image_view/colormap] by /image_view
+[rosmaster.master][INFO] 2022-06-18 04:26:15,204: +PARAM [/image_view/min_image_value] by /image_view
+[rosmaster.master][INFO] 2022-06-18 04:26:15,204: +PARAM [/image_view/max_image_value] by /image_view
+[rosmaster.master][INFO] 2022-06-18 04:26:15,224: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:41665/']: sec=0.04, result=[1, '', 0]
+[rosmaster.master][INFO] 2022-06-18 04:26:15,428: +CACHEDPARAM [/rosout/omit_topics] by /rosout
+[rosmaster.master][INFO] 2022-06-18 04:26:24,180: +PUB [/rosout] /uvc_camera http://itodaisuke:40187/
+[rosmaster.master][INFO] 2022-06-18 04:26:24,181: +SERVICE [/uvc_camera/get_loggers] /uvc_camera http://itodaisuke:40187/
+[rosmaster.master][INFO] 2022-06-18 04:26:24,181: +SERVICE [/uvc_camera/set_logger_level] /uvc_camera http://itodaisuke:40187/
+[rosmaster.master][INFO] 2022-06-18 04:26:24,188: +SERVICE [/set_camera_info] /uvc_camera http://itodaisuke:40187/
+[rosmaster.master][INFO] 2022-06-18 04:26:24,189: +CACHEDPARAM [/rosout_disable_topics_generation] by /uvc_camera
+[rosmaster.master][INFO] 2022-06-18 04:26:24,193: +PUB [/image_raw] /uvc_camera http://itodaisuke:40187/
+[rosmaster.master][INFO] 2022-06-18 04:26:24,194: +PUB [/camera_info] /uvc_camera http://itodaisuke:40187/
+[rosmaster.master][INFO] 2022-06-18 04:26:24,195: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:41665/', 'http://itodaisuke:40187/']
+[rosmaster.master][INFO] 2022-06-18 04:26:24,196: publisherUpdate[/image_raw] -> http://itodaisuke:41665/ ['http://itodaisuke:40187/']
+[rosmaster.master][INFO] 2022-06-18 04:26:24,238: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:41665/', 'http://itodaisuke:40187/']: sec=0.04, result=[1, '', 0]
+[rosmaster.master][INFO] 2022-06-18 04:26:24,239: publisherUpdate[/image_raw] -> http://itodaisuke:41665/ ['http://itodaisuke:40187/']: sec=0.04, result=[1, '', 0]
+[rosmaster.master][INFO] 2022-06-18 04:27:14,759: +PUB [/rosout] /image_view http://itodaisuke:37445/
+[rosmaster.master][INFO] 2022-06-18 04:27:14,762: +SERVICE [/image_view/get_loggers] /image_view http://itodaisuke:37445/
+[rosmaster.master][INFO] 2022-06-18 04:27:14,763: +SERVICE [/image_view/set_logger_level] /image_view http://itodaisuke:37445/
+[rosmaster.master][INFO] 2022-06-18 04:27:14,765: +SUB [/image_raw] /image_view http://itodaisuke:37445/
+[rosmaster.master][INFO] 2022-06-18 04:27:14,808: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:40187/', 'http://itodaisuke:37445/']
+[rosmaster.master][INFO] 2022-06-18 04:27:14,845: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:40187/', 'http://itodaisuke:37445/']: sec=0.04, result=[1, '', 0]
+[rosmaster.master][INFO] 2022-06-18 04:27:14,933: -PUB [/rosout] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:27:14,934: -PUB [/image_view/parameter_descriptions] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:27:14,934: -PUB [/image_view/parameter_updates] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:27:14,934: -PUB [/image_view/output] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:27:14,935: -SUB [/image_raw] /image_view http://itodaisuke:41665/
+[rosmaster.master][INFO] 2022-06-18 04:27:14,935: -SERVICE [/image_view/get_loggers] /image_view rosrpc://itodaisuke:32977
+[rosmaster.master][INFO] 2022-06-18 04:27:14,935: -SERVICE [/image_view/set_logger_level] /image_view rosrpc://itodaisuke:32977
+[rosmaster.master][INFO] 2022-06-18 04:27:14,936: -SERVICE [/image_view/load_nodelet] /image_view rosrpc://itodaisuke:32977
+[rosmaster.master][INFO] 2022-06-18 04:27:14,936: -SERVICE [/image_view/unload_nodelet] /image_view rosrpc://itodaisuke:32977
+[rosmaster.master][INFO] 2022-06-18 04:27:14,936: -SERVICE [/image_view/list] /image_view rosrpc://itodaisuke:32977
+[rosmaster.master][INFO] 2022-06-18 04:27:14,937: -SERVICE [/image_view/set_parameters] /image_view rosrpc://itodaisuke:32977
+[rosmaster.master][INFO] 2022-06-18 04:27:14,937: -CACHEDPARAM [/rosout_disable_topics_generation] by /image_view
+[rosmaster.master][INFO] 2022-06-18 04:27:20,981: -SUB [/image_raw] /image_view http://itodaisuke:37445/
+[rosmaster.master][INFO] 2022-06-18 04:27:20,982: -PUB [/rosout] /image_view http://itodaisuke:37445/
+[rosmaster.master][INFO] 2022-06-18 04:27:20,982: -SERVICE [/image_view/get_loggers] /image_view rosrpc://itodaisuke:45219
+[rosmaster.master][INFO] 2022-06-18 04:27:20,982: -SERVICE [/image_view/set_logger_level] /image_view rosrpc://itodaisuke:45219
+[rosmaster.master][INFO] 2022-06-18 04:27:21,017: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:40187/']
+[rosmaster.master][INFO] 2022-06-18 04:27:21,018: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:40187/']: sec=0.00, result=[1, '', 0]
+[rosmaster.master][INFO] 2022-06-18 04:27:59,945: +PUB [/rosout] /image_view http://itodaisuke:36253/
+[rosmaster.master][INFO] 2022-06-18 04:27:59,947: +SERVICE [/image_view/get_loggers] /image_view http://itodaisuke:36253/
+[rosmaster.master][INFO] 2022-06-18 04:27:59,948: +SERVICE [/image_view/set_logger_level] /image_view http://itodaisuke:36253/
+[rosmaster.master][INFO] 2022-06-18 04:27:59,949: +SUB [/image_raw] /image_view http://itodaisuke:36253/
+[rosmaster.master][INFO] 2022-06-18 04:27:59,973: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:40187/', 'http://itodaisuke:36253/']
+[rosmaster.master][INFO] 2022-06-18 04:27:59,976: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:40187/', 'http://itodaisuke:36253/']: sec=0.00, result=[1, '', 0]
+[rosmaster.master][INFO] 2022-06-18 04:28:00,918: -SUB [/image_raw] /image_view http://itodaisuke:36253/
+[rosmaster.master][INFO] 2022-06-18 04:28:00,918: -PUB [/rosout] /image_view http://itodaisuke:36253/
+[rosmaster.master][INFO] 2022-06-18 04:28:00,918: -SERVICE [/image_view/get_loggers] /image_view rosrpc://itodaisuke:45995
+[rosmaster.master][INFO] 2022-06-18 04:28:00,918: -SERVICE [/image_view/set_logger_level] /image_view rosrpc://itodaisuke:45995
+[rosmaster.master][INFO] 2022-06-18 04:28:00,977: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:40187/']
+[rosmaster.master][INFO] 2022-06-18 04:28:00,978: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:40187/']: sec=0.00, result=[1, '', 0]
+[rosmaster.master][INFO] 2022-06-18 04:28:08,210: +PUB [/rosout] /image_view http://itodaisuke:41905/
+[rosmaster.master][INFO] 2022-06-18 04:28:08,212: +SERVICE [/image_view/get_loggers] /image_view http://itodaisuke:41905/
+[rosmaster.master][INFO] 2022-06-18 04:28:08,213: +SERVICE [/image_view/set_logger_level] /image_view http://itodaisuke:41905/
+[rosmaster.master][INFO] 2022-06-18 04:28:08,214: +SUB [/image_raw] /image_view http://itodaisuke:41905/
+[rosmaster.master][INFO] 2022-06-18 04:28:08,215: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:40187/', 'http://itodaisuke:41905/']
+[rosmaster.master][INFO] 2022-06-18 04:28:08,218: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:40187/', 'http://itodaisuke:41905/']: sec=0.00, result=[1, '', 0]
+[rosmaster.master][INFO] 2022-06-18 04:28:10,129: -SUB [/image_raw] /image_view http://itodaisuke:41905/
+[rosmaster.master][INFO] 2022-06-18 04:28:10,129: -PUB [/rosout] /image_view http://itodaisuke:41905/
+[rosmaster.master][INFO] 2022-06-18 04:28:10,129: -SERVICE [/image_view/get_loggers] /image_view rosrpc://itodaisuke:44429
+[rosmaster.master][INFO] 2022-06-18 04:28:10,129: -SERVICE [/image_view/set_logger_level] /image_view rosrpc://itodaisuke:44429
+[rosmaster.master][INFO] 2022-06-18 04:28:10,192: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:40187/']
+[rosmaster.master][INFO] 2022-06-18 04:28:10,193: publisherUpdate[/rosout] -> http://itodaisuke:44497/ ['http://itodaisuke:40187/']: sec=0.00, result=[1, '', 0]
+[rosmaster.master][INFO] 2022-06-18 04:28:20,207: -PUB [/rosout_agg] /rosout http://itodaisuke:44497/
+[rosmaster.master][INFO] 2022-06-18 04:28:20,207: -SUB [/rosout] /rosout http://itodaisuke:44497/
+[rosmaster.master][INFO] 2022-06-18 04:28:20,208: -SERVICE [/rosout/get_loggers] /rosout rosrpc://itodaisuke:33403
+[rosmaster.master][INFO] 2022-06-18 04:28:20,208: -SERVICE [/rosout/set_logger_level] /rosout rosrpc://itodaisuke:33403
+[rosmaster.master][INFO] 2022-06-18 04:28:20,209: -CACHEDPARAM [/rosout/omit_topics] by /rosout
+[rosmaster.main][INFO] 2022-06-18 04:28:20,237: keyboard interrupt, will exit
+[rosmaster.main][INFO] 2022-06-18 04:28:20,237: stopping master...
+[rospy.core][INFO] 2022-06-18 04:28:20,237: signal_shutdown [atexit]

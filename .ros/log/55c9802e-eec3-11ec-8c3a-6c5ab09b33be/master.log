@@ -1,0 +1,21 @@
+[rosmaster.main][INFO] 2022-06-18 04:58:47,046: initialization complete, waiting for shutdown
+[rosmaster.main][INFO] 2022-06-18 04:58:47,046: Starting ROS Master Node
+[xmlrpc][INFO] 2022-06-18 04:58:47,047: XML-RPC server binding to 0.0.0.0:11311
+[xmlrpc][INFO] 2022-06-18 04:58:47,047: Started XML-RPC server [http://itodaisuke:11311/]
+[rosmaster.master][INFO] 2022-06-18 04:58:47,047: Master initialized: port[11311], uri[http://itodaisuke:11311/]
+[xmlrpc][INFO] 2022-06-18 04:58:47,048: xml rpc node: starting XML-RPC server
+[rosmaster.master][INFO] 2022-06-18 04:58:47,122: +PARAM [/run_id] by /roslaunch
+[rosmaster.master][INFO] 2022-06-18 04:58:47,123: +PARAM [/roslaunch/uris/host_itodaisuke__43957] by /roslaunch
+[rosmaster.master][INFO] 2022-06-18 04:58:47,237: +PARAM [/rosversion] by /roslaunch
+[rosmaster.master][INFO] 2022-06-18 04:58:47,237: +PARAM [/rosdistro] by /roslaunch
+[rosmaster.master][INFO] 2022-06-18 04:58:47,242: +SERVICE [/rosout/get_loggers] /rosout http://itodaisuke:36477/
+[rosmaster.master][INFO] 2022-06-18 04:58:47,242: +SERVICE [/rosout/set_logger_level] /rosout http://itodaisuke:36477/
+[rosmaster.master][INFO] 2022-06-18 04:58:47,243: +PUB [/rosout_agg] /rosout http://itodaisuke:36477/
+[rosmaster.master][INFO] 2022-06-18 04:58:47,245: +SUB [/rosout] /rosout http://itodaisuke:36477/
+[rosmaster.master][INFO] 2022-06-18 04:59:59,139: -PUB [/rosout_agg] /rosout http://itodaisuke:36477/
+[rosmaster.master][INFO] 2022-06-18 04:59:59,140: -SUB [/rosout] /rosout http://itodaisuke:36477/
+[rosmaster.master][INFO] 2022-06-18 04:59:59,141: -SERVICE [/rosout/get_loggers] /rosout rosrpc://itodaisuke:50061
+[rosmaster.master][INFO] 2022-06-18 04:59:59,141: -SERVICE [/rosout/set_logger_level] /rosout rosrpc://itodaisuke:50061
+[rosmaster.main][INFO] 2022-06-18 04:59:59,243: keyboard interrupt, will exit
+[rosmaster.main][INFO] 2022-06-18 04:59:59,243: stopping master...
+[rospy.core][INFO] 2022-06-18 04:59:59,244: signal_shutdown [atexit]

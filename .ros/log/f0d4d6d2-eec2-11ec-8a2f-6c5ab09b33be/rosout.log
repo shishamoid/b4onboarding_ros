@@ -1,0 +1,5 @@
+
+
+1655528157.875663567  Node Startup
+1655528157.824281454 INFO /operator [1_screenshot_sub.py:20(start_node)] [topics: /rosout] img_proc node started
+1655528212.309702157 INFO /operator [1_screenshot_sub.py:20(start_node)] [topics: /rosout] img_proc node started
