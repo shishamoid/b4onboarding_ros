@@ -1,11 +1,13 @@
 import rospy
 from std_msgs.msg import String
+import csv
 
 position_list = []
-f = open("./cursor_position.txt","w",encoding='UTF-8')
+f = open('./2.csv', 'w')
+writer = csv.writer(f)
 
 def process_image(msg):
-    f.write(msg.data + "\n")
+        writer.writerow(msg.data.split("|"))
         
 def start_node():
     rospy.init_node('operator')

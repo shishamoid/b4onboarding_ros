@@ -1,9 +1,10 @@
 import subprocess
-import pyautogui
+import mouse
 from subprocess import PIPE
 import time
+import csv
 
-times = 50
+times = 100
 
 datalist = []
 for i in range(times):
@@ -11,10 +12,11 @@ for i in range(times):
     time.sleep(2)
     subprocess.run(['gnome-screenshot', '-p'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     #↑screenshotはデフォルトで/home/<username>/ピクチャに吐かれるみたいです。
-    x, y = pyautogui.position()
-    data = "x座標: " + str(x) + " | " + "y座標: " + str(y) + "\n"
+    x, y = mouse.get_position()
+    data =[x,y]
     datalist.append(data)
 
-with open("../2-3/cursor_position_for_2-3.txt","w") as f:
+with open("../2-3/cursor_position_for_2-3.csv","w") as f:
+    writer = csv.writer(f)
     for i in range(len(datalist)):
-        f.write(datalist[i])
+            writer.writerow(datalist[i])

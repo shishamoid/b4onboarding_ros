@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
+from torch.utils.data import Dataset
 from torch.utils.data import TensorDataset
 from torchvision import transforms
 
@@ -9,8 +10,19 @@ from torch import optim
 import numpy as np
 import cv2
 import glob
+import csv
 
 import matplotlib.pyplot as plt
+
+class cursordataset(Dataset):
+    def __init__(self,img,position):
+            self.img = torch.stack(img)
+            self.position = torch.stack(position)
+    def __getitem__(self, index):
+        return self.img[index],self.position[index]
+
+    def __len__(self):
+        return len(self.img)
 
 class cursor_model(nn.Module):
     def __init__(self, device):
@@ -24,14 +36,15 @@ class cursor_model(nn.Module):
         self.conv2 = nn.Conv2d(32,64,3)
         self.conv3 = nn.Conv2d(64,16,3)
 
-        self.fc1 = nn.Linear(1572480, 100)
+        self.fc1 = nn.Linear(3590976, 100)
         self.fc2 = nn.Linear(100, 2)
 
         self.flatten = nn.Flatten()
 
     def forward(self, x):
+        #print(x.shape)#10(batch) * 3 * 1080 * 1920
         x = self.pool(x)
-        x = self.pool(x)
+        #print(x.shape)#torch.Size([5, 3, 360, 640])
         x = self.conv1(x)
         x = self.relu(x)
         x = self.conv2(x)
@@ -79,15 +92,10 @@ def train(epoch,train_data,device,lr):
     return model, loss_list, epoch_list
 
 def dataloader(img,position,batch_size):
-    img = torch.stack(img_data)
-    position = torch.stack(position)
 
-    trans = transforms.Compose([transforms.Normalize((0.5,), (0.5,))])
-    img = trans(img)
-
-    train_dataset = TensorDataset(img,position)
-    train_data,test_data = torch.utils.data.random_split(train_dataset,[45,5])
-    train_data = DataLoader(train_data, batch_size=batch_size, shuffle=True)
+    train_dataset = cursordataset(img,position)
+    train_data,test_data = torch.utils.data.random_split(train_dataset,[90,10])
+    train_data = DataLoader(train_data, batch_size=batch_size, shuffle=False)
     test_data = DataLoader(test_data, batch_size=1, shuffle=False)
 
     return train_data,test_data
@@ -97,23 +105,22 @@ def img_load():
     img_list = []
     for i in range(len(path_list)):
         
-        image = np.array(cv2.imread(path_list[i]))
-        image = np.reshape(image,(3,2160,3840))
-        image = torch.from_numpy(image.astype(np.float32)).float()
+        image = np.array(cv2.imread(path_list[i]))/255
+        image = np.reshape(image,(3,1080,1920))
+        image = torch.from_numpy(image.astype(np.float64)).float()
         img_list.append(image)
 
     return img_list
 
 def position_load():
     position_list = []
-    with open("./cursor_position_for_2-3.txt","r") as r:
+    with open("./cursor_position_for_2-3.csv","r") as r:
         data = r.readlines()
-
     for i in range(len(data)):
-        x,y = data[i].split("|")
-        x = int(x.replace(" ","").replace("x座標:","").replace("\n",""))/3840
-        y = int(y.replace(" ","").replace("y座標:","").replace("\n",""))/2160
-        position_list.append(torch.tensor([x,y],dtype=torch.float32).float())
+        x,y = data[i].replace("\n","").split(",")
+        x = float(x)/1920
+        y = float(y)/1080
+        position_list.append(torch.tensor([x,y],dtype=torch.float64).float())
     return position_list
 
 def draw_loss(loss_list,epoch_list):
@@ -129,10 +136,10 @@ def predict(model,test_data,device):
         label = xy[1].to(device)
 
         output = model(img)
-        x = output[0][0].item()*3840
-        y = output[0][1].item()*2160
-        label_x = label[0][0].item()*3840
-        label_y = label[0][1].item()*2160
+        x = output[0][0].item()*1920
+        y = output[0][1].item()*1080
+        label_x = label[0][0].item()*1920
+        label_y = label[0][1].item()*1080
 
         print("xy",x,y,"  label",label_x,label_y)
         if j ==4:
@@ -142,9 +149,9 @@ def predict(model,test_data,device):
 
 if __name__ == '__main__':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    epoch = 100
-    lr = 0.01
-    batch_size = 15
+    epoch = 200
+    lr = 0.001
+    batch_size = 5
 
     img_data = img_load()
     position_data = position_load()
