@@ -27,23 +27,22 @@ class cursordataset(Dataset):
 class cursor_model(nn.Module):
     def __init__(self, device):
         super(cursor_model,self).__init__()
-        self.device = device
         self.relu = nn.Tanh()
         self.pool = nn.MaxPool2d(3, stride=3)
-        self.dropout = nn.Dropout()
+        #self.dropout = nn.Dropout()
 
         self.conv1 = nn.Conv2d(3,32,3)
         self.conv2 = nn.Conv2d(32,64,3)
         self.conv3 = nn.Conv2d(64,16,3)
 
-        self.fc1 = nn.Linear(3590976, 100)
+        self.fc1 = nn.Linear(836352, 100)
         self.fc2 = nn.Linear(100, 2)
 
         self.flatten = nn.Flatten()
 
     def forward(self, x):
         #print(x.shape)#10(batch) * 3 * 1080 * 1920
-        x = self.pool(x)
+        #x = self.pool(x)
         #print(x.shape)#torch.Size([5, 3, 360, 640])
         x = self.conv1(x)
         x = self.relu(x)
@@ -51,7 +50,11 @@ class cursor_model(nn.Module):
         x = self.relu(x)
         x = self.conv3(x)
         x = self.relu(x)
+        #print(x.shape)
+        x = self.pool(x)
+        #print
         x = self.flatten(x)
+        #print(x.shape)
         x = self.fc1(x)
         x = self.relu(x)
         x = self.fc2(x)
@@ -60,8 +63,9 @@ class cursor_model(nn.Module):
 def train(epoch,train_data,device,lr):
     loss_list = []
     epoch_list = []
-
-    model = cursor_model(device).to(device)
+    print(device)
+    #model = cursor_model(device).to(device)
+    model = cursor_model(device)
     criterion = nn.MSELoss()
     optimizer = optim.SGD(model.parameters(), lr=lr)
     
@@ -74,7 +78,7 @@ def train(epoch,train_data,device,lr):
 
             img = img.to(device)
             position = position.to(device)
-
+            model = model.to(device)
             loss = criterion(model(img), position)
             loss_train += loss.item()
             optimizer.zero_grad()
@@ -94,7 +98,7 @@ def train(epoch,train_data,device,lr):
 def dataloader(img,position,batch_size):
 
     train_dataset = cursordataset(img,position)
-    train_data,test_data = torch.utils.data.random_split(train_dataset,[90,10])
+    train_data,test_data = torch.utils.data.random_split(train_dataset,[900,100])
     train_data = DataLoader(train_data, batch_size=batch_size, shuffle=False)
     test_data = DataLoader(test_data, batch_size=1, shuffle=False)
 
@@ -105,8 +109,17 @@ def img_load():
     img_list = []
     for i in range(len(path_list)):
         
-        image = np.array(cv2.imread(path_list[i]))/255
-        image = np.reshape(image,(3,1080,1920))
+        if i % 3 ==0:
+            image = np.array(cv2.imread(path_list[0]))/255
+
+        if i % 3 ==1:
+            image = np.array(cv2.imread(path_list[1]))/255
+         
+        if i % 3 ==2:
+            image = np.array(cv2.imread(path_list[2]))/255
+
+        #image = np.array(cv2.imread(path_list[i]))/255
+        image = np.reshape(image,(3,600,800))
         image = torch.from_numpy(image.astype(np.float64)).float()
         img_list.append(image)
 
@@ -117,9 +130,19 @@ def position_load():
     with open("./cursor_position_for_2-3.csv","r") as r:
         data = r.readlines()
     for i in range(len(data)):
-        x,y = data[i].replace("\n","").split(",")
-        x = float(x)/1920
-        y = float(y)/1080
+
+        if i % 3 ==0:
+            x,y = data[0].replace("\n","").split(",")
+            
+        if i % 3 ==1:
+            x,y = data[1].replace("\n","").split(",")
+
+        if i % 3 ==2:
+            x,y = data[2].replace("\n","").split(",")
+            
+        #x,y = data[i].replace("\n","").split(",")
+        x = float(x)/800
+        y = float(y)/600
         position_list.append(torch.tensor([x,y],dtype=torch.float64).float())
     return position_list
 
@@ -136,10 +159,10 @@ def predict(model,test_data,device):
         label = xy[1].to(device)
 
         output = model(img)
-        x = output[0][0].item()*1920
-        y = output[0][1].item()*1080
-        label_x = label[0][0].item()*1920
-        label_y = label[0][1].item()*1080
+        x = output[0][0].item()*800
+        y = output[0][1].item()*600
+        label_x = label[0][0].item()*800
+        label_y = label[0][1].item()*600
 
         print("xy",x,y,"  label",label_x,label_y)
         if j ==4:
@@ -149,9 +172,9 @@ def predict(model,test_data,device):
 
 if __name__ == '__main__':
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    epoch = 200
+    epoch = 10
     lr = 0.001
-    batch_size = 5
+    batch_size = 1
 
     img_data = img_load()
     position_data = position_load()
